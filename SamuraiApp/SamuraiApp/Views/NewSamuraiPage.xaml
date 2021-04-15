@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SamuraiApp.ViewModels"
+             x:Class="SamuraiApp.Views.NewSamuraiPage">
+    <ContentPage.BindingContext>
+        <local:NewSamuraiViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Add your fucking Samurai"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand" />
+            <Label Text="Enter the name:" />
+            <Entry Text="{Binding SelectedSamurai.Name}" />
+            <Button Text="Save"
+                    Command="{Binding SaveCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

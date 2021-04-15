@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SamuraiApp.ViewModels"
+             x:Class="SamuraiApp.Views.SamuraisPage">
+    <ContentPage.BindingContext>
+        <local:SamuraisViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+
+        <StackLayout BackgroundColor="DarkGray"
+                     Margin="5">
+
+            <Button Text="Add Samurai"
+                    Command="{Binding AddSamuraiCommand}" />
+            <ListView x:Name="SamuraisListView"
+                      ItemsSource="{Binding Samurais}"
+                      SelectionMode="Single"
+                      Margin="10">
+
+                <ListView.ItemTemplate>
+
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <StackLayout BackgroundColor="BlanchedAlmond">
+                                <Label Text="{Binding Name}"
+                                       BackgroundColor="BlanchedAlmond"
+                                       LineBreakMode="NoWrap"
+                                       FontSize="16" />
+                                <Label Text="{Binding Era}"
+                                       LineBreakMode="NoWrap"
+                                       FontSize="13" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
